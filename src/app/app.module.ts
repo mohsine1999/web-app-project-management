@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {RouterOutlet} from "@angular/router";
+import {RouterModule, RouterOutlet} from "@angular/router";
 import { ProductComponent } from './components/product/product.component';
 import {HttpClientModule} from "@angular/common/http";
 
@@ -16,7 +16,8 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     RouterOutlet,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

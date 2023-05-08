@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch"
+import {ProductRequest} from "../model/ProductRequest";
 
 
 @Injectable({
@@ -15,25 +16,25 @@ export class ApiRequestService {
   }
 
   getAllProducts(): Observable<any[]> {
-    return this.http.get<any[]>(this.host);
+    return this.http.get<ProductRequest[]>(this.host);
   }
 
   getProduct(id: number): Observable<any> {
     const url = `${this.host}/${id}`;
-    return this.http.get<any>(url);
+    return this.http.get<ProductRequest>(url);
   }
 
-  createProduct(product: any): Observable<any> {
-    return this.http.post<any>(this.host, product);
+  createProduct(product: ProductRequest): Observable<any> {
+    return this.http.post<ProductRequest>(this.host, product);
   }
 
-  updateProduct(product: any): Observable<any> {
+  updateProduct(product: ProductRequest): Observable<any> {
     const url = `${this.host}/${product.id}`;
-    return this.http.put<any>(url, product);
+    return this.http.put<ProductRequest>(url, product);
   }
 
   deleteProduct(id: number): Observable<any> {
     const url = `${this.host}/${id}`;
-    return this.http.delete<any>(url);
+    return this.http.delete<ProductRequest>(url);
   }
 }
